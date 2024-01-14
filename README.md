@@ -117,7 +117,7 @@ managers_score=df_selection.groupby("sale")["sum"].sum().sort_values(ascending=F
 answer_three=managers_score.index[0]
 answer_three
 ```
-### Ответ Смирнов
+### Ответ: Смирнов
 4. Какой тип сделок (новая/текущая) был преобладающим в октябре 2021?
 ```python
  mask=df_cop["status"]=="Октябрь 2021"
@@ -127,7 +127,7 @@ df_selection = df_cop.loc[index_October+1:]
 answer_four=df_selection["new/current"].value_counts().sort_values(ascending=False).index[0]
 answer_four
 ```
-### Ответ текущая
+### Ответ: текущая
 5 Сколько оригиналов договора по майским сделкам было получено в июне 2021?
 ```python
 # функция для создания datetimeтипа данных в столбце receiving date 
@@ -153,7 +153,7 @@ df_selection=df_selection.dropna(subset=["receiving_date"])
 answer_five=df_selection.count().iloc[0]
 answer_five
 ``` 
-### Ответ 81
+### Ответ: 81
 ## Финальное задание 
 ```python
  mask_t=df_cop["status"]=="Июль 2021"
@@ -176,7 +176,7 @@ coct_table=pd.concat([df_new,df_cur],axis=0)
 answer_final=coct_table.groupby("sale")["sum"].sum().sort_values(ascending=False)
 answer_final
 ```
-### Ответ
+### Ответ:
 * Соколов,8973.700195
 * Васильев,30996.695312
 * Филимонова,63408.722656
