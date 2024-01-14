@@ -53,7 +53,8 @@ for i in range(len(months)):
         index_one = df_cop.index[mask_one].tolist()[0]
         df_selection = df_cop.loc[index_one+1:]
         gain=df_selection[df_selection.status=="ОПЛАЧЕНО"]["sum"].sum()
-        income.append(gain```
+        income.append(gain)
+```
 ``` total_revenue = sum(income)
 
 percentage_revenue = [(r / total_revenue) * 100 for r in income]
@@ -83,7 +84,8 @@ ax1.legend(loc='upper left')
 ax2.legend(loc='upper right')
 plt.grid(axis='y')
 
-plt.show()```
+plt.show()
+```
 ![image](https://github.com/Nikolairopin/Company_Test/assets/126417867/00afe3dd-b929-42f4-b858-71b872797e9d)
 3 Кто из менеджеров привлек для компании больше всего денежных средств в
 сентябре 2021?
@@ -96,15 +98,17 @@ index_October = df_cop.index[mask_t].tolist()[0]
 df_selection = df_cop.loc[index_September+1:index_October-1]
 managers_score=df_selection.groupby("sale")["sum"].sum().sort_values(ascending=False)
 answer_three=managers_score.index[0]
-answer_three '''
+answer_three
+```
 ### Ответ Смирнов
 4. Какой тип сделок (новая/текущая) был преобладающим в октябре 2021?
-'''mask=df_cop["status"]=="Октябрь 2021"
+``` mask=df_cop["status"]=="Октябрь 2021"
 index_October = df_cop.index[mask].tolist()[0]
 
 df_selection = df_cop.loc[index_October+1:]
 answer_four=df_selection["new/current"].value_counts().sort_values(ascending=False).index[0]
-answer_four```
+answer_four
+```
 ### Ответ текущая
 5 Сколько оригиналов договора по майским сделкам было получено в июне 2021?
 ```# функция для создания datetimeтипа данных в столбце receiving date 
@@ -128,10 +132,11 @@ df_selection = df_cop.loc[index_July+1:index_August-1]
 df_selection=df_selection[df_selection["receiving_date"].dt.month==8]
 df_selection=df_selection.dropna(subset=["receiving_date"])
 answer_five=df_selection.count().iloc[0]
-answer_five ``` 
+answer_five
+``` 
 ### Ответ 81
 ## Финальное задание 
-```mask_t=df_cop["status"]=="Июль 2021"
+``` mask_t=df_cop["status"]=="Июль 2021"
 index_t = df_cop.index[mask_t].tolist()[0]
 
 df_selection = df_cop.loc[2:index_t-1]
@@ -149,7 +154,8 @@ df_cur.loc[:, "residue"] = df_cur["sum"].apply(lambda x: x * 0.05 if x > 10000 e
 coct_table=pd.concat([df_new,df_cur],axis=0)
 
 answer_final=coct_table.groupby("sale")["sum"].sum().sort_values(ascending=False)
-answer_final```
+answer_final
+```
 ### Ответ
 Соколов,8973.700195
 Васильев,30996.695312
